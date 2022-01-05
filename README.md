@@ -18,3 +18,8 @@ docker run -d -p 27017:27017 --name db-cinema --network net-cinema mongo
 docker run -d -p 80:80 --name api-cinema --network net-cinema lbmika/api-cinema:1.0.0
 ~~~
 
+# Docker compose
+Un ficher docker-compose.yml est inclus dans ce projet pour lancer l'application en une seule ligne de commande.
+~~~shell
+docker compose up
+~~~
