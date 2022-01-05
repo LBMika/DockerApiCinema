@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  app_cinema:
+    # L'image existe sur le hub, on utilise le mot clé 'image'
+    # image: [nom de l'image]
+    # L'image est un Dockerfile présent dans l'appli, on utilise le mot clé 'build'
+    build: .
+    container_name: api-cinema
+    ports:
+      - 80:80
+    networks:
+      - net-cinema
+    depends_on:
+      - app_mongo
+  app_mongo:
+    image: mongo
+    container_name: db-cinema
+    ports:
+      - 27017:27017
+    networks:
+      - net-cinema
+    volumes:
+      # [nom du volume]/[destination]
+      - db-cinema:/data/db
+
+networks:
+  net-cinema:
+
+volumes:
+  db-cinema:
