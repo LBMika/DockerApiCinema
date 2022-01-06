@@ -1,0 +1,11 @@
+name: Test Api cinema
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  First-test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Je fais les test"
+      - run: echo "Je fais le build"
